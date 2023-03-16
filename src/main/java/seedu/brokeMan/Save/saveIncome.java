@@ -9,7 +9,9 @@ import java.util.LinkedList;
 
 import seedu.brokeMan.entry.Entry;
 
-
+/*
+Saves all incomes under any change
+ */
 public class saveIncome {
 
     public static void writeFile(LinkedList<Entry> incomes) {

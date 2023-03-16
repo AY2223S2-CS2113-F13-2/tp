@@ -10,7 +10,9 @@ import java.nio.file.Path;
 import java.util.LinkedList;
 
 public class saveExpense {
-
+    /*
+Saves all expenses under any change
+ */
     public static void writeFile(LinkedList<Entry> expenses) {
         try {
             FileWriter myWriter = new FileWriter("./data/ExpenseData.txt");

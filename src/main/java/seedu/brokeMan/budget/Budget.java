@@ -2,7 +2,7 @@ package seedu.brokeMan.budget;
 
 import seedu.brokeMan.ui.Ui;
 
-import static seedu.brokeMan.entry.Expenses.getTotalExpense;
+import static seedu.brokeMan.entry.expense.Expenses.getTotalExpense;
 
 public class Budget {
     public static boolean hasSetBudget = false;

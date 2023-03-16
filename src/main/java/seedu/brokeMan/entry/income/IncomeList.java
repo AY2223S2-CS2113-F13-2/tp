@@ -1,11 +1,14 @@
-package seedu.brokeMan.entry;
+package seedu.brokeMan.entry.income;
 
 
+import seedu.brokeMan.Save.saveIncome;
+import seedu.brokeMan.entry.Entry;
+import seedu.brokeMan.entry.EntryList;
 import seedu.brokeMan.ui.Ui;
 
 import java.util.LinkedList;
 
-public class IncomeList extends EntryList{
+public class IncomeList extends EntryList {
     private static final LinkedList<Entry> incomeList = new LinkedList<>();
 
     /**
@@ -14,6 +17,7 @@ public class IncomeList extends EntryList{
      */
     public static void addIncome(Income newIncome) {
         addEntry(newIncome, incomeList);
+        saveIncome.writeFile(incomeList);
     }
 
     /**
@@ -22,6 +26,7 @@ public class IncomeList extends EntryList{
      */
     public static void deleteIncome(int index) {
         deleteEntry(index, incomeList);
+        saveIncome.writeFile(incomeList);
     }
 
     /**
@@ -42,6 +47,7 @@ public class IncomeList extends EntryList{
      */
     public static void editIncome(String type, int index, String newEntry) {
         editEntry(type, index, newEntry, incomeList);
+        saveIncome.writeFile(incomeList);
     }
 
     /**
@@ -52,6 +58,7 @@ public class IncomeList extends EntryList{
      */
     public static void editIncomeDouble(String type, int index, double newIncome) {
         editEntry(type, index, newIncome, incomeList);
+        saveIncome.writeFile(incomeList);
     }
 
     /**

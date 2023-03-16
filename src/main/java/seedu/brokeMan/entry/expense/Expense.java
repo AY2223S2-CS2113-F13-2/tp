@@ -1,6 +1,8 @@
-package seedu.brokeMan.entry;
+package seedu.brokeMan.entry.expense;
 
-public class Expense extends Entry{
+import seedu.brokeMan.entry.Entry;
+
+public class Expense extends Entry {
     public Expense(double amount, String info, String time) {
         super(amount, info, time);
     }

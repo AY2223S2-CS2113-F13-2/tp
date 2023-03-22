@@ -1,7 +1,10 @@
 package seedu.brokeMan.parser;
 
 import java.time.DateTimeException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.Optional;
 
 import static seedu.brokeMan.common.Messages.MESSAGE_INVALID_TIME;
 
@@ -34,5 +37,27 @@ public class StringToTime {
         } catch (NumberFormatException e) {
             throw new DateTimeException(MESSAGE_INVALID_TIME);
         }
+    }
+
+    public static String createDateString(int year, Month month) {
+        return Integer.toString(year) + "/" + month.toString();
+    }
+
+    public static int createYearFromString(Optional<String> dateInString) {
+        int year = LocalDate.now().getYear();
+        if (dateInString.isPresent()) {
+            String[] yearAndMonth = dateInString.get().split("/");
+            year = Integer.parseInt(yearAndMonth[0]);
+        }
+        return year;
+    }
+
+    public static Month createMonthFromString(Optional<String> dateInString) {
+        Month month = LocalDate.now().getMonth();
+        if (dateInString.isPresent()) {
+            String[] yearAndMonth = dateInString.get().split("/");
+            month = Month.of(Integer.parseInt(yearAndMonth[1]));
+        }
+        return month;
     }
 }

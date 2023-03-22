@@ -17,13 +17,13 @@
 |
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  You have successfully added [$6.00 spent on dinner - 2023-12-12 @ 20:01]
+|  Enter command: |  You have successfully added [$6.00 spent on dinner - 2023-06-12 @ 20:01]
 |
 |  -----------------------------------------------------------------------
 |
 |  Enter command: |  Here are the expenses you have made.
 |  1. $4.00 spent on lunch - 2022-09-08 @ 12:14
-|  2. $6.00 spent on dinner - 2023-12-12 @ 20:01
+|  2. $6.00 spent on dinner - 2023-06-12 @ 20:01
 |  Total expenses: $10.0
 |
 |  -----------------------------------------------------------------------
@@ -61,7 +61,7 @@
 |  Enter command: |  Here are the income you have made.
 |  1. $400.00 earned on salary - 2023-03-12 @ 15:01
 |  2. $600.00 earned on stocks - 2023-03-15 @ 15:10
-|  Total income: $1000.0
+|  Total income: $1000.00
 |
 |  -----------------------------------------------------------------------
 |
@@ -83,32 +83,30 @@
 |
 |  Enter command: |  Here are the income you have made.
 |  1. $700.00 earned on pay - 2023-03-12 @ 15:01
-|  Total income: $700.0
+|  Total income: $700.00
 |
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  You have not set your budget.
-|
-|  setBudget: sets your budget.
-|  Parameter: <amount>
-|  Example: setBudget 500
+|  Enter command: |  You have set your budget as $1800.00 for 2023/MARCH.
+|  The amount of budget left is $1800.00
 |
 |  -----------------------------------------------------------------------
 |
 |  Enter command: |  You cannot set negative budget.
 |
 |  setBudget: sets your budget.
-|  Parameter: <amount>
+|  Parameter: <amount> [d/ YYYY/MM]
 |  Example: setBudget 500
+|  Example: setBudget 500 2023/03
 |
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  You have successfully set 500.0 as your budget.
+|  Enter command: |  You have successfully set $500.00 as your budget for 2023/MARCH.
 |
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  You have set your budget as $500.0
-|  The amount of budget left is $494.0
+|  Enter command: |  You have set your budget as $500.00 for 2023/MARCH.
+|  The amount of budget left is $500.00
 |
 |  -----------------------------------------------------------------------
 |

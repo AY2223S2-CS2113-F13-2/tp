@@ -1,12 +1,13 @@
 package seedu.brokeMan.entry.income;
 
-import seedu.brokeMan.entry.Entry;
-import seedu.brokeMan.entry.EntryList;
-import seedu.brokeMan.save.SaveIncome;
+import seedu.brokeMan.parser.StringToTime;
 import seedu.brokeMan.ui.Ui;
 
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
 
 public class IncomeList extends EntryList {
     private static final LinkedList<Entry> incomeList = new LinkedList<>();
@@ -32,10 +33,23 @@ public class IncomeList extends EntryList {
     /**
      * list out income in the list
      */
+    public static void listIncome(Optional<String> date) {
+        int year = StringToTime.createYearFromString(date);
+        Month month = StringToTime.createMonthFromString(date);
+
+        List<Entry> incomeOfDate = getIncomesMadeInMonth(year, month);
+        String dateInString = StringToTime.createDateString(year, month);
+
+        Ui.showToUser("Here are the income you have made for " + dateInString + ".");
+        listEntry(incomeOfDate);
+        Ui.showToUser("Total income: $" + getEntryListSum(incomeOfDate));
+        Ui.showToUserWithLineBreak("");
+    }
+
     public static void listIncome() {
         Ui.showToUser("Here are the income you have made.");
         listEntry(incomeList);
-        Ui.showToUser("Total income: $" + getTotalAmount(incomeList));
+        Ui.showToUser(String.format("Total income: $%.2f", getEntryListSum(incomeList)));
         Ui.showToUserWithLineBreak("");
     }
 
@@ -70,4 +84,7 @@ public class IncomeList extends EntryList {
         sortEntriesByDate(incomeList);
     }
 
+    public static List<Entry> getIncomesMadeInMonth(int year, Month month) {
+        return selectEntryForDate(year, month, incomeList);
+    }
 }

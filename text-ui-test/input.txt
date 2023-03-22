@@ -1,5 +1,5 @@
 addExpense a/ 4.00 d/ lunch t/ 2022 09 08 12 14
-addExpense a/ 6.00 d/ dinner t/ 2023 12 12 20 01
+addExpense a/ 6.00 d/ dinner t/ 2023 06 12 20 01
 listExpense
 editExpense i/ 1 t/ cost n/ 7
 editExpense i/ 1 t/ info n/ breakfast

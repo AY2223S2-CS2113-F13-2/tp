@@ -1,6 +1,7 @@
 package seedu.brokeMan.entry;
 
 import java.time.LocalDateTime;
+import java.time.Month;
 
 public abstract class Entry {
     protected String info;
@@ -55,5 +56,10 @@ public abstract class Entry {
         String timeString = timeAsString.substring(indexOfT + 1);
         return String.format("%s @ %s", dateString, timeString);
     }
+
+    protected boolean isSameMonth(int year, Month month) {
+        return (this.time.getYear() == year && this.time.getMonth().equals(month));
+    }
+
     public abstract String toString();
 }

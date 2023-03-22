@@ -1,5 +1,9 @@
 package seedu.brokeMan.save;
 
+import seedu.brokeMan.entry.Entry;
+import seedu.brokeMan.entry.income.Income;
+import seedu.brokeMan.entry.income.IncomeList;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,10 +14,6 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
-
-import seedu.brokeMan.entry.Entry;
-import seedu.brokeMan.entry.expense.Expense;
-import seedu.brokeMan.entry.expense.ExpenseList;
 
 /*
 Saves all incomes under any change
@@ -53,8 +53,8 @@ public class SaveIncome {
             for (String incomeEntry : incomeEntries) {
                 String[] strIncome = incomeEntry.split("/");
                 try {
-                    Expense expense = new Expense(Double.parseDouble(strIncome[0]), strIncome[1], LocalDateTime.parse(strIncome[2]));
-                    ExpenseList.addExpense(expense);
+                    Income income = new Income(Double.parseDouble(strIncome[0]), strIncome[1], LocalDateTime.parse(strIncome[2]));
+                    IncomeList.addIncome(income);
                 } catch (IndexOutOfBoundsException iobe) {
                     System.out.println("Incorrectly Saved Income");
                 }

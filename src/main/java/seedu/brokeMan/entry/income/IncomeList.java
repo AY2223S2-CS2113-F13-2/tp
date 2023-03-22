@@ -1,8 +1,8 @@
 package seedu.brokeMan.entry.income;
 
-
 import seedu.brokeMan.entry.Entry;
 import seedu.brokeMan.entry.EntryList;
+import seedu.brokeMan.save.SaveIncome;
 import seedu.brokeMan.ui.Ui;
 
 import java.time.LocalDateTime;
@@ -17,6 +17,7 @@ public class IncomeList extends EntryList {
      */
     public static void addIncome(Income newIncome) {
         addEntry(newIncome, incomeList);
+        SaveIncome.writeFile(incomeList);
     }
 
     /**
@@ -25,6 +26,7 @@ public class IncomeList extends EntryList {
      */
     public static void deleteIncome(int index) {
         deleteEntry(index, incomeList);
+        SaveIncome.writeFile(incomeList);
     }
 
     /**
@@ -44,14 +46,17 @@ public class IncomeList extends EntryList {
      */
     public static void editIncome(int index, String newEntry) {
         editEntryDescription(index, newEntry, incomeList);
+        SaveIncome.writeFile(incomeList);
     }
 
     public static void editIncome(int index, Double newEntry) {
         editEntryCost(index, newEntry, incomeList);
+        SaveIncome.writeFile(incomeList);
     }
 
     public static void editIncome(int index, LocalDateTime newEntry) {
         editEntryTime(index, newEntry, incomeList);
+        SaveIncome.writeFile(incomeList);
     }
 
 

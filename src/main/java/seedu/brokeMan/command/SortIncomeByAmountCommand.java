@@ -1,6 +1,6 @@
 package seedu.brokeMan.command;
 
-import seedu.brokeMan.entry.IncomeList;
+import seedu.brokeMan.entry.income.IncomeList;
 
 public class SortIncomeByAmountCommand extends Command {
     public static final String COMMAND_WORD = "sortIncomeByAmount";

@@ -43,7 +43,9 @@ public abstract class Entry {
     public double getAmount() {
         return this.amount;
     }
-
+    public String getInfo() {
+        return this.info;
+    }
     public String getTime() { return this.time.toString(); }
 
     protected String convertTimeToString() {

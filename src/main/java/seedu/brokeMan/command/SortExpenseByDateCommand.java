@@ -1,6 +1,6 @@
 package seedu.brokeMan.command;
 
-import seedu.brokeMan.entry.ExpenseList;
+import seedu.brokeMan.entry.expense.ExpenseList;
 
 public class SortExpenseByDateCommand extends Command {
     public static final String COMMAND_WORD = "sortExpenseByDate";

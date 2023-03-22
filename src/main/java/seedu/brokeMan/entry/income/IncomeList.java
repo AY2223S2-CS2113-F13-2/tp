@@ -1,12 +1,14 @@
-package seedu.brokeMan.entry;
+package seedu.brokeMan.entry.income;
 
 
+import seedu.brokeMan.entry.Entry;
+import seedu.brokeMan.entry.EntryList;
 import seedu.brokeMan.ui.Ui;
 
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 
-public class IncomeList extends EntryList{
+public class IncomeList extends EntryList {
     private static final LinkedList<Entry> incomeList = new LinkedList<>();
 
     /**

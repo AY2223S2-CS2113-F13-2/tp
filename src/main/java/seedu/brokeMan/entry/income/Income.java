@@ -1,8 +1,10 @@
-package seedu.brokeMan.entry;
+package seedu.brokeMan.entry.income;
+
+import seedu.brokeMan.entry.Entry;
 
 import java.time.LocalDateTime;
 
-public class Income extends Entry{
+public class Income extends Entry {
     public Income(double amount, String info, LocalDateTime time) {
         super(amount, info, time);
     }

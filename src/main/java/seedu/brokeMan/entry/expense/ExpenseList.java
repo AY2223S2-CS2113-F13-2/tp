@@ -1,5 +1,8 @@
-package seedu.brokeMan.entry;
+package seedu.brokeMan.entry.expense;
 
+import seedu.brokeMan.entry.Entry;
+import seedu.brokeMan.entry.EntryList;
+import seedu.brokeMan.entry.expense.Expense;
 import seedu.brokeMan.ui.Ui;
 
 import java.time.LocalDateTime;

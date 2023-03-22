@@ -1,5 +1,6 @@
 package seedu.brokeMan.entry;
 
+import seedu.brokeMan.save.SaveIncome;
 import seedu.brokeMan.ui.Ui;
 
 import java.time.LocalDateTime;

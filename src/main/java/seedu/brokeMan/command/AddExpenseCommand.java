@@ -1,7 +1,7 @@
 package seedu.brokeMan.command;
 
-import seedu.brokeMan.entry.Expense;
-import seedu.brokeMan.entry.ExpenseList;
+import seedu.brokeMan.entry.expense.Expense;
+import seedu.brokeMan.entry.expense.ExpenseList;
 
 import java.time.LocalDateTime;
 

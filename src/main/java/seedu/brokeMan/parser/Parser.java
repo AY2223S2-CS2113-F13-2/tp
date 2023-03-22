@@ -54,9 +54,9 @@ public class Parser {
         case AddIncomeCommand.COMMAND_WORD:
             return prepareAddCommand(description, "income");
         case ListExpenseCommand.COMMAND_WORD:
-            return prepareListCommand("expense", description);
+            return prepareListCommand("expense");
         case ListIncomeCommand.COMMAND_WORD:
-            return prepareListCommand("income", description);
+            return prepareListCommand("income");
         case EditExpenseCommand.COMMAND_WORD:
             return prepareEditCommand(description, "expense");
         case EditIncomeCommand.COMMAND_WORD:
@@ -68,7 +68,7 @@ public class Parser {
         case SetBudgetCommand.COMMAND_WORD:
             return prepareSetBudgetCommand(description);
         case ViewBudgetCommand.COMMAND_WORD:
-            return prepareViewBudgetCommand(description);
+            return prepareViewBudgetCommand();
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
         case SortExpenseByAmountCommand.COMMAND_WORD:
@@ -85,18 +85,11 @@ public class Parser {
         }
     }
 
-    private static Command prepareViewBudgetCommand(String description) {
+    private static Command prepareViewBudgetCommand() {
         try {
-            if (description.equals("dummy")) {
-                return new ViewBudgetCommand();
-            }
-            if (!description.substring(0, 3).equals("t/ ")) {
-                return new InvalidCommand("Invalid date format!", ViewBudgetCommand.MESSAGE_USAGE);
-            }
-            description = description.substring(3);
-            return new ViewBudgetCommand(description);
+            return new ViewBudgetCommand();
         } catch (hasNotSetBudgetException e) {
-            return new InvalidCommand(e.getMessage(), ViewBudgetCommand.MESSAGE_USAGE);
+            return new InvalidCommand(e.getMessage(), SetBudgetCommand.MESSAGE_USAGE);
         }
     }
 
@@ -106,16 +99,9 @@ public class Parser {
                     SetBudgetCommand.MESSAGE_USAGE);
         }
 
-        String[] descriptionByWord = description.split(" d/ ");
-        if (descriptionByWord.length > 2 || descriptionByWord.length < 1) {
-            return new InvalidCommand("Invalid information entered", SetBudgetCommand.MESSAGE_USAGE);
-        }
-
         double budget;
-        String budgetInString = descriptionByWord[0];
-
         try {
-            budget = Double.parseDouble(budgetInString);
+            budget = Double.parseDouble(description);
             if (budget < 0) {
                 String errorMessage = new NegativeBudgetException().getMessage();
                 return new InvalidCommand(errorMessage, SetBudgetCommand.MESSAGE_USAGE);
@@ -124,11 +110,7 @@ public class Parser {
             String errorMessage = new BudgetNotADoubleException().getMessage();
             return new InvalidCommand(errorMessage, SetBudgetCommand.MESSAGE_USAGE);
         }
-        if (descriptionByWord.length == 2) {
-            descriptionByWord[1] = descriptionByWord[1].trim();
-            return (descriptionByWord[1] == "" ? new SetBudgetCommand(budget)
-                    : new SetBudgetCommand(budget, descriptionByWord[1]));
-        }
+
         return new SetBudgetCommand(budget);
     }
 
@@ -194,17 +176,11 @@ public class Parser {
         return new AddIncomeCommand(amount, newDescription, time);
     }
 
-    private static Command prepareListCommand(String type, String description) {
-        if (!description.equals("dummy") && !description.contains("t/ ")) {
-            String messageUsage = (type.equals("expense") ? ListExpenseCommand.MESSAGE_USAGE :
-                    ListIncomeCommand.MESSAGE_USAGE);
-            return new InvalidCommand("Incorrect date format provided", messageUsage);
+    private static Command prepareListCommand(String type) {
+        if (type.equals("expense")) {
+            return new ListExpenseCommand();
         }
-        String date = description.substring(3);
-        if (!description.equals("dummy")) {
-            return (type.equals("expense") ? new ListExpenseCommand(date) : new ListIncomeCommand(date));
-        }
-        return (type.equals("expense") ? new ListExpenseCommand() : new ListIncomeCommand());
+        return new ListIncomeCommand();
     }
 
     private static Command prepareEditCommand(String description, String moneyType) {

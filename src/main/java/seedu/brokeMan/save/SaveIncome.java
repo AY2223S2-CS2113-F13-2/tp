@@ -65,7 +65,7 @@ public class SaveIncome {
                 File myObj = new File("./data/IncomeData.txt");
                 boolean fileCreated = false;
                 if (myObj.createNewFile()) {
-                    //System.out.println("File created: " + myObj.getName());
+                    //System.out.println("File created: " + myObj.getName()); -
                     fileCreated = true;
                 }
             } catch (IOException fcIoe) {

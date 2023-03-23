@@ -1,19 +1,22 @@
 package seedu.brokeMan.command;
 
-import seedu.brokeMan.entry.expense.Expenses;
+import seedu.brokeMan.entry.expense.ExpenseList;
+import seedu.brokeMan.parser.StringToTime;
+
+import java.time.LocalDateTime;
+import java.util.logging.Logger;
 
 public class EditExpenseCommand extends Command {
     public static final String COMMAND_WORD = "editExpense";
+    private static final Logger logger = Logger.getLogger("EditExpenseCommandLogger");
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": edit the expense from the list.\n" +
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": edits the expense from the list.\n" +
             "|  Parameter: i/ <index> t/ <type> n/ <newEntry>\n" +
-            "|  There are 3 type that can be changed, cost, info, time\n" +
+            "|  There are 3 type that can be changed, amount, info, time\n" +
             "|  Example: " + COMMAND_WORD + " i/ 1 t/ cost n/ 5";
-    private int index;
-    private String type;
-    private double newCost;
-    private String newEntry;
-    private boolean isEditCost = false;
+    private final int index;
+    private final String type;
+    private final String newEntry;
 
     public EditExpenseCommand(int index, String type, String newEntry) {
         this.index = index;
@@ -21,18 +24,15 @@ public class EditExpenseCommand extends Command {
         this.newEntry = newEntry;
     }
 
-    public EditExpenseCommand(int index, String type, double newCost) {
-        this.index = index;
-        this.type = type;
-        this.newCost = newCost;
-        isEditCost = true;
-    }
-
     public void execute() {
-        if (isEditCost) {
-            Expenses.editExpenseCost(type, index, newCost);
+        if (type.equals("amount")) {
+            double newCost = Double.parseDouble(newEntry);
+            ExpenseList.editExpense(index, newCost);
+        } else if (type.equals("info")) {
+            ExpenseList.editExpense(index, newEntry);
         } else {
-            Expenses.editExpense(type, index, newEntry);
+            LocalDateTime newTime = StringToTime.convertStringToTime(newEntry);
+            ExpenseList.editExpense(index, newTime);
         }
     }
 }

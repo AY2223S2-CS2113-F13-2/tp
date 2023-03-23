@@ -1,6 +1,6 @@
 package seedu.brokeMan.command;
 
-import seedu.brokeMan.entry.expense.Expenses;
+import seedu.brokeMan.entry.expense.ExpenseList;
 
 public class DeleteExpenseCommand extends Command {
     public static final String COMMAND_WORD = "deleteExpense";
@@ -14,6 +14,6 @@ public class DeleteExpenseCommand extends Command {
     }
 
     public void execute() {
-        Expenses.deleteExpense(index);
+        ExpenseList.deleteExpense(index);
     }
 }

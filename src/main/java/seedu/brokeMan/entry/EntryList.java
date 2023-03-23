@@ -2,10 +2,13 @@ package seedu.brokeMan.entry;
 
 import seedu.brokeMan.ui.Ui;
 
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class EntryList {
-    //static final LinkedList<Entry> entryList = new LinkedList<>();
 
     /**
      * Adds new expense/income to the list
@@ -22,7 +25,7 @@ public abstract class EntryList {
      *
      * @param entryList LinkedList that contains the entries
      */
-    public static void listEntry(LinkedList<Entry> entryList) {
+    public static void listEntry(List<Entry> entryList) {
         int counter = 1;
         for (Entry entryLog : entryList) {
             String message = String.format("%d. %s", counter, entryLog.toString());
@@ -49,23 +52,17 @@ public abstract class EntryList {
     }
 
     /**
-     * Edits a specific index in the list
+     * Edits amount of money for an entry in the specific index in the list
      *
-     * @param type type of the entry to be changed (can be amount, info, time)
      * @param entryIndex index of the entry in the list
-     * @param newEntry new entry that will replace current entry
+     * @param newAmount new entry that will replace current entry
      * @param entryList LinkedList that contains the entries
      *
      */
-    public static void editEntry(String type, int entryIndex, double newEntry, LinkedList<Entry> entryList) {
+    public static void editEntryCost(int entryIndex, double newAmount, LinkedList<Entry> entryList) {
         try {
             Entry entryBeingEdited = entryList.get(entryIndex - 1);
-            if (type.equals("cost") || type.equals("income")) {
-                entryBeingEdited.editAmount(newEntry);
-            } else {
-                // throw a custom exception here
-                Ui.showToUserWithLineBreak("Invalid type Parameter!", "");
-            }
+            entryBeingEdited.editAmount(newAmount);
             Ui.showToUserWithLineBreak("Successfully edited expense.", "");
         } catch (IndexOutOfBoundsException | IllegalArgumentException e) {
             Ui.showToUserWithLineBreak("Invalid index! Please try again.", "");
@@ -73,27 +70,35 @@ public abstract class EntryList {
     }
 
     /**
-     * Edits a specific index in the list
+     * Edits description of an entry in the specific index in the list
      *
-     * @param type entry type of the expense to be changed (can be amount, info, time)
      * @param entryIndex index of the entry in the list
-     * @param newEntry new entry that will replace current entry
+     * @param newDescription new description that will replace current description
      * @param entryList LinkedList that contains the entries
      *
      */
-    public static void editEntry(String type, int entryIndex, String newEntry, LinkedList<Entry> entryList) {
+    public static void editEntryDescription(int entryIndex, String newDescription, LinkedList<Entry> entryList) {
         try {
             Entry entryBeingEdited = entryList.get(entryIndex - 1);
-            switch (type) {
-            case "info":
-                entryBeingEdited.editInfo(newEntry);
-                break;
-            case "time":
-                entryBeingEdited.editTime(newEntry);
-                break;
-            default:
-                Ui.showToUserWithLineBreak("Invalid type parameter!", "");
-            }
+            entryBeingEdited.editDescription(newDescription);
+            Ui.showToUserWithLineBreak("Successfully edited expense.", "");
+        } catch (IndexOutOfBoundsException | IllegalArgumentException e) {
+            Ui.showToUserWithLineBreak("Invalid index! Please try again.", "");
+        }
+    }
+
+    /**
+     * Edits time of an entry in the specific index in the list
+     *
+     * @param entryIndex index of the entry in the list
+     * @param newTime new time that will replace current time
+     * @param entryList LinkedList that contains the entries
+     *
+     */
+    public static void editEntryTime(int entryIndex, LocalDateTime newTime, LinkedList<Entry> entryList) {
+        try {
+            Entry entryBeingEdited = entryList.get(entryIndex - 1);
+            entryBeingEdited.editTime(newTime);
             Ui.showToUserWithLineBreak("Successfully edited expense.", "");
         } catch (IndexOutOfBoundsException | IllegalArgumentException e) {
             Ui.showToUserWithLineBreak("Invalid index! Please try again.", "");
@@ -117,9 +122,23 @@ public abstract class EntryList {
      */
     protected static void sortEntriesByAmount(LinkedList<Entry> entryList) {
         entryList.sort(new EntryAmountComparator());
+        listEntry(entryList);
     }
 
     protected static void sortEntriesByDate(LinkedList<Entry> entryList) {
         entryList.sort(new EntryDateComparator());
+        listEntry(entryList);
+    }
+
+    protected static List<Entry> selectEntryForDate(int year, Month month, LinkedList<Entry> entryList) {
+        return entryList.stream().filter(x -> x.isSameMonth(year, month)).collect(Collectors.toList());
+    }
+
+    public static double getEntryListSum(List<Entry> entryList) {
+        double sum = 0;
+        for (Entry entry : entryList) {
+            sum += entry.getAmount();
+        }
+        return sum;
     }
 }

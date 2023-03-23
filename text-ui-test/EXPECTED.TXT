@@ -13,22 +13,27 @@
 |  -----------------------------------------------------------------------
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  You have successfully added [$4.00 spent on lunch - 12pm]
+|  Enter command: |  You have successfully added [$4.00 spent on lunch - 2022-09-08 @ 12:14]
 |
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  You have successfully added [$6.00 spent on dinner - 6pm]
+|  Enter command: |  You have successfully added [$6.00 spent on dinner - 2023-06-12 @ 20:01]
 |
 |  -----------------------------------------------------------------------
 |
 |  Enter command: |  Here are the expenses you have made.
-|  1. $4.00 spent on lunch - 12pm
-|  2. $6.00 spent on dinner - 6pm
+|  1. $4.00 spent on lunch - 2022-09-08 @ 12:14
+|  2. $6.00 spent on dinner - 2023-06-12 @ 20:01
 |  Total expenses: $10.0
 |
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  Successfully edited expense.
+|  Enter command: |  Type specified is incorrect.
+|
+|  editExpense: edits the expense from the list.
+|  Parameter: i/ <index> t/ <type> n/ <newEntry>
+|  There are 3 type that can be changed, amount, info, time
+|  Example: editExpense i/ 1 t/ cost n/ 5
 |
 |  -----------------------------------------------------------------------
 |
@@ -45,23 +50,32 @@
 |  -----------------------------------------------------------------------
 |
 |  Enter command: |  Here are the expenses you have made.
-|  1. $6.00 spent on dinner - 11am
+|  1. $6.00 spent on dinner - 2023-06-10 @ 00:10
 |  Total expenses: $6.0
 |
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  You have successfully added [$400.00 earned on salary - 12pm]
+|  Enter command: |  You have successfully added [$400.00 earned on salary - 2023-03-12 @ 15:01]
 |
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  You have successfully added [$600.00 earned on stocks - 6pm]
+|  Enter command: |  You have successfully added [$600.00 earned on stocks - 2023-03-15 @ 15:10]
 |
 |  -----------------------------------------------------------------------
 |
 |  Enter command: |  Here are the income you have made.
-|  1. $400.00 earned on salary - 12pm
-|  2. $600.00 earned on stocks - 6pm
-|  Total income: $1000.0
+|  1. $400.00 earned on salary - 2023-03-12 @ 15:01
+|  2. $600.00 earned on stocks - 2023-03-15 @ 15:10
+|  Total income: $1000.00
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  Type specified is incorrect.
+|
+|  editIncome: edits the income from the list.
+|  Parameter: i/ <index> t/ <type> n/ <newEntry>
+|  There are 3 type that can be changed, amount, info, time
+|  Example: editIncome i/ 1 t/ info n/ stocks
 |
 |  -----------------------------------------------------------------------
 |
@@ -69,11 +83,12 @@
 |
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  Successfully edited expense.
+|  Enter command: |  Invalid time information. Please present your time as 'YYYY MM DD HH mm'
 |
-|  -----------------------------------------------------------------------
-|
-|  Enter command: |  Successfully edited expense.
+|  editIncome: edits the income from the list.
+|  Parameter: i/ <index> t/ <type> n/ <newEntry>
+|  There are 3 type that can be changed, amount, info, time
+|  Example: editIncome i/ 1 t/ info n/ stocks
 |
 |  -----------------------------------------------------------------------
 |
@@ -82,33 +97,31 @@
 |  -----------------------------------------------------------------------
 |
 |  Enter command: |  Here are the income you have made.
-|  1. $700.00 earned on pay - 12pm
-|  Total income: $700.0
+|  1. $400.00 earned on pay - 2023-03-12 @ 15:01
+|  Total income: $400.00
 |
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  You have not set your budget.
+|  Enter command: |  You have set your budget as $1800.00 for 2023/MARCH.
+|  The amount of budget left is $1800.00
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  Negative amount is not allowed.
 |
 |  setBudget: sets your budget.
-|  Parameter: <amount>
+|  Parameter: <amount> [d/ YYYY/MM]
 |  Example: setBudget 500
+|  Example: setBudget 500 2023/03
 |
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  You cannot set negative budget.
-|
-|  setBudget: sets your budget.
-|  Parameter: <amount>
-|  Example: setBudget 500
+|  Enter command: |  You have successfully set $500.00 as your budget for 2023/MARCH.
 |
 |  -----------------------------------------------------------------------
 |
-|  Enter command: |  You have successfully set 500.0 as your budget.
-|
-|  -----------------------------------------------------------------------
-|
-|  Enter command: |  You have set your budget as $500.0
-|  The amount of budget left is $494.0
+|  Enter command: |  You have set your budget as $500.00 for 2023/MARCH.
+|  The amount of budget left is $500.00
 |
 |  -----------------------------------------------------------------------
 |

@@ -12,7 +12,9 @@ public class HelpCommand extends Command {
                 DeleteIncomeCommand.MESSAGE_USAGE, "",EditExpenseCommand.MESSAGE_USAGE, "",
                 EditIncomeCommand.MESSAGE_USAGE, "", ListExpenseCommand.MESSAGE_USAGE, "",
                 ListIncomeCommand.MESSAGE_USAGE, "", SetBudgetCommand.MESSAGE_USAGE, "",
-                ViewBudgetCommand.MESSAGE_USAGE, "",HelpCommand.MESSAGE_USAGE, "",
-                ExitCommand.MESSAGE_USAGE);
+                ViewBudgetCommand.MESSAGE_USAGE, "", SortExpenseByAmountCommand.MESSAGE_USAGE, "",
+                SortIncomeByAmountCommand.MESSAGE_USAGE, "", SortExpenseByDateCommand.MESSAGE_USAGE, "",
+                SortIncomeByDateCommand.MESSAGE_USAGE, "",HelpCommand.MESSAGE_USAGE, "",
+                ExitCommand.MESSAGE_USAGE, "");
     }
 }

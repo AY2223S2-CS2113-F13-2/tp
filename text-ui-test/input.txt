@@ -1,17 +1,17 @@
-addExpense a/ 4.00 d/ lunch t/ 12pm
-addExpense a/ 6.00 d/ dinner t/ 6pm
+addExpense a/ 4.00 d/ lunch t/ 2022 09 08 12 14
+addExpense a/ 6.00 d/ dinner t/ 2023 06 12 20 01
 listExpense
 editExpense i/ 1 t/ cost n/ 7
 editExpense i/ 1 t/ info n/ breakfast
-editExpense i/ 2 t/ time n/ 11am
+editExpense i/ 2 t/ time n/ 2023 06 10 00 10
 deleteExpense 1
 listExpense
-addIncome a/ 400 d/ salary t/ 12pm
-addIncome a/ 600 d/ stocks t/ 6pm
+addIncome a/ 400 d/ salary t/ 2023 03 12 15 01
+addIncome a/ 600 d/ stocks t/ 2023 03 15 15 10
 listIncome
 editIncome i/ 1 t/ income n/ 700
 editIncome i/ 1 t/ info n/ pay
-editIncome i/ 2 t/ time n/ 9pm
+editIncome i/ 2 t/ time n/ 2023
 deleteIncome 2
 listIncome
 viewBudget

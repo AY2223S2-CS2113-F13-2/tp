@@ -26,11 +26,15 @@ public abstract class EntryList {
      * @param entryList LinkedList that contains the entries
      */
     public static void listEntry(List<Entry> entryList) {
-        int counter = 1;
-        for (Entry entryLog : entryList) {
-            String message = String.format("%d. %s", counter, entryLog.toString());
-            Ui.showToUser(message);
-            counter++;
+        if (entryList.size() == 0) {
+            Ui.showToUser("The requested list is empty\n|");
+        } else if (entryList.size() > 0) {
+            int counter = 1;
+            for (Entry entryLog : entryList) {
+                String message = String.format("%d. %s", counter, entryLog.toString());
+                Ui.showToUser(message);
+                counter++;
+            }
         }
     }
 
@@ -103,16 +107,6 @@ public abstract class EntryList {
         } catch (IndexOutOfBoundsException | IllegalArgumentException e) {
             Ui.showToUserWithLineBreak("Invalid index! Please try again.", "");
         }
-    }
-
-    protected static double getTotalAmount(LinkedList<Entry> entryList) {
-        double totalAmount = 0;
-        if (entryList.size() > 0) {
-            for (Entry entryLog : entryList) {
-                totalAmount += entryLog.getAmount();
-            }
-        }
-        return totalAmount;
     }
 
     /**

@@ -7,9 +7,9 @@ import java.util.Optional;
 public class SetBudgetCommand extends Command {
     public static final String COMMAND_WORD = "setBudget";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": sets your budget.\n" +
-            "|  Parameter: <amount> [d/ YYYY/MM]\n" +
+            "|  Parameter: <amount> [t/ YYYY/MM]\n" +
             "|  Example: " + COMMAND_WORD + " 500\n" +
-            "|  Example: " + COMMAND_WORD + " 500 2023/03";
+            "|  Example: " + COMMAND_WORD + " 500 t/ 2023/03";
     private final double budget;
     private final Optional<String> date;
 

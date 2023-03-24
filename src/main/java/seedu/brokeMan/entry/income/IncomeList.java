@@ -86,11 +86,15 @@ public class IncomeList extends EntryList {
      */
     public static void sortIncomeByAmount() {
         sortEntriesByAmount(incomeList);
+        Ui.showToUser(String.format("Total income: $%.2f", getEntryListSum(incomeList)));
+        Ui.showToUserWithLineBreak("");
         SaveIncome.writeFile(incomeList);
     }
 
     public static void sortIncomeByDate() {
         sortEntriesByDate(incomeList);
+        Ui.showToUser(String.format("Total income: $%.2f", getEntryListSum(incomeList)));
+        Ui.showToUserWithLineBreak("");
         SaveIncome.writeFile(incomeList);
     }
 

@@ -55,6 +55,22 @@
 |
 |  -----------------------------------------------------------------------
 |
+|  Enter command: |  Invalid optional time flag format.
+|
+|  listExpense: lists expenses made in the current month.
+|  listExpense [t/ YYYY/MM]: : lists expenses made in the specified month
+|  Example: listExpense
+|  Example: listExpense t/ 2023/03
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  Here are the expenses you have made for 2022/SEPTEMBER.
+|  The requested list is empty
+|
+|  Total expenses: $0.0
+|
+|  -----------------------------------------------------------------------
+|
 |  Enter command: |  You have successfully added [$400.00 earned on salary - 2023-03-12 @ 15:01]
 |
 |  -----------------------------------------------------------------------
@@ -67,6 +83,22 @@
 |  1. $400.00 earned on salary - 2023-03-12 @ 15:01
 |  2. $600.00 earned on stocks - 2023-03-15 @ 15:10
 |  Total income: $1000.00
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  Invalid optional time flag format.
+|
+|  listIncome: lists incomes made in the current month.
+|  listIncome [t/ YYYY/MM]: : lists incomes made in the specified month
+|  Example: listIncome
+|  Example: listIncome t/ 2023/03
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  Here are the income you have made for 2023/MARCH.
+|  1. $400.00 earned on salary - 2023-03-12 @ 15:01
+|  2. $600.00 earned on stocks - 2023-03-15 @ 15:10
+|  Total income: $1000.0
 |
 |  -----------------------------------------------------------------------
 |
@@ -110,9 +142,9 @@
 |  Enter command: |  Negative amount is not allowed.
 |
 |  setBudget: sets your budget.
-|  Parameter: <amount> [d/ YYYY/MM]
+|  Parameter: <amount> [t/ YYYY/MM]
 |  Example: setBudget 500
-|  Example: setBudget 500 2023/03
+|  Example: setBudget 500 t/ 2023/03
 |
 |  -----------------------------------------------------------------------
 |
@@ -120,8 +152,86 @@
 |
 |  -----------------------------------------------------------------------
 |
+|  Enter command: |  Invalid Date Format!
+|
+|  setBudget: sets your budget.
+|  Parameter: <amount> [t/ YYYY/MM]
+|  Example: setBudget 500
+|  Example: setBudget 500 t/ 2023/03
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  The budget you have set is not a double.
+|  If you are trying to enter date information, please use t/.
+|
+|  setBudget: sets your budget.
+|  Parameter: <amount> [t/ YYYY/MM]
+|  Example: setBudget 500
+|  Example: setBudget 500 t/ 2023/03
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  You have successfully set $2000.00 as your budget for 2023/APRIL.
+|
+|  -----------------------------------------------------------------------
+|
 |  Enter command: |  You have set your budget as $500.00 for 2023/MARCH.
 |  The amount of budget left is $500.00
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  Invalid optional time flag format.
+|
+|  viewBudget: view your budget and how much of it is left remaining.
+|  viewBudget [t/ YYYY/MM]: view your budget and how much of was left in the specified month
+|  Example: viewBudget
+|  Example: viewBudget /t 2023/03
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  Invalid time information. Please present your time as [YYYY/MM]
+|
+|  viewBudget: view your budget and how much of it is left remaining.
+|  viewBudget [t/ YYYY/MM]: view your budget and how much of was left in the specified month
+|  Example: viewBudget
+|  Example: viewBudget /t 2023/03
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  You have set your budget as $1600.00 for 2023/FEBRUARY.
+|  The amount of budget left is $1600.00
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  You have successfully added [$10.00 spent on shopping - 2023-08-11 @ 10:19]
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  You have successfully added [$800.00 earned on allowance - 2023-04-19 @ 19:10]
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  1. $800.00 earned on allowance - 2023-04-19 @ 19:10
+|  2. $400.00 earned on pay - 2023-03-12 @ 15:01
+|  Total income: $1200.00
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  1. $800.00 earned on allowance - 2023-04-19 @ 19:10
+|  2. $400.00 earned on pay - 2023-03-12 @ 15:01
+|  Total income: $1200.00
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  1. $10.00 spent on shopping - 2023-08-11 @ 10:19
+|  2. $6.00 spent on dinner - 2023-06-10 @ 00:10
+|  Total expenses: $16.0
+|
+|  -----------------------------------------------------------------------
+|
+|  Enter command: |  1. $10.00 spent on shopping - 2023-08-11 @ 10:19
+|  2. $6.00 spent on dinner - 2023-06-10 @ 00:10
+|  Total expenses: $16.0
 |
 |  -----------------------------------------------------------------------
 |

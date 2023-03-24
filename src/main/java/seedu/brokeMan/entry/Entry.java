@@ -40,9 +40,6 @@ public abstract class Entry {
     public void editTime(LocalDateTime newTime) {
         this.time = newTime;
     }
-    public String getInfo() {
-        return this.info;
-    }
     public double getAmount() {
         return this.amount;
     }

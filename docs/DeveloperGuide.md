@@ -82,6 +82,18 @@ The Budget class represents the user’s monthly budget. The class utilize class
 
 It makes use of a static HashMap<Integer, HashMap<Month, Double>> to keep track of monthly budget. If the user tries to access budget using keys that are not entered in the HashMap, it will return a warning mentioning that the inquired budget has not been set yet. 
   
+### SaveExpense, SaveIncome
+
+The SaveExpense and SaveIncome class deal with saving in the user inputted data locally so that it can be later accessed.
+**Methods**
+
+writeFile(LinkedList<Entry> expenses/incomes)
+* writes to the file in a similar format that is entered in to make a new Expense object within the constructor.
+* 
+readExpenseFile() 
+
+* This method reads in from the saved file either ExpenseData.txt or IncomeData.txt. Reads in and initialized each line as either expense or income. Then adds to the respective list.
+
 ## Product scope
 ### Target user profile
 
@@ -113,3 +125,4 @@ The program will offer visualization of the user's incomes, expenses and budget,
 ## Instructions for manual testing
 
 {Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+
